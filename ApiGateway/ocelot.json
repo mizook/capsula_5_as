@@ -1,0 +1,56 @@
+{
+  "Routes": [
+    {
+      "RouteName": "Net-Api",
+      "DownstreamPathTemplate": "/product/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/net-api/product/{id}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      }
+    },
+    {
+      "RouteName": "Flask-Api",
+      "DownstreamPathTemplate": "/order/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/flask-api/order/{id}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
+      "FileCacheOptions": {
+        "TtlSeconds": 10
+      }
+    },
+    {
+      "RouteName": "Express-Api",
+      "DownstreamPathTemplate": "/customer/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/express-api/customer/{id}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5000"
+  }
+}
