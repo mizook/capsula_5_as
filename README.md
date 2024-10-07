@@ -81,12 +81,12 @@ El API Gateway centraliza el acceso, aplica políticas de seguridad como autenti
 
 Una vez que todos los servicios estén ejecutándose, puedes interactuar con ellos a través del API Gateway.
 
-## Ejemplos de Solicitudes
+## Ejemplos de Solicitudes mediante API Gateway
 
 **.NET API - Obtener Producto por ID**
 
 ```
-curl -X GET "http://localhost:5001/product/1" -k
+curl -X GET "http://localhost:5000/net-api/product/1" -k
 ```
 
 **Flask API - Crear Orden**
